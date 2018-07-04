@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-console": 0,
+    "react/prop-types": 0,
+    "react/jsx-no-duplicate-props": 0,
+    "react/no-find-dom-node": 0,
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "jsx": true
+  }
+}
