@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Hello from 'containers/Hello';
+import App from 'containers/App';
 
 const Routes = ({ match }) => (
 	<Router>
-		<div>
-			<Route exact path="/" render={(props) => (<Hello  {...props} />)} />
-		</div>
+			<App />
 	</Router>
 );
 

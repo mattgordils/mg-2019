@@ -1,55 +1,43 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 
 const config = {
 
-	context: path.resolve(__dirname, 'src'),
-
-	entry : {
-		app : './js/application.js'
-	},
+	context: path.resolve(__dirname, '../src'),
 
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, '../build'),
 		filename: '[name].js',
 		publicPath: '/'
 	},
 
 	plugins : [
-
-    new ExtractTextPlugin('[name].css'),
-
-		new HtmlWebpackPlugin({
-			title : 'Easyset',
-			template: './templates/index.html',
-			filename: 'index.html',
-			inject:'body'
+		new webpack.EnvironmentPlugin({
+		  NODE_ENV: 'development'
 		}),
-
-		new webpack.EnvironmentPlugin(["NODE_ENV"])
-
+    new ExtractTextPlugin('[name].css')
 	],
 
 	resolve : {
 		modules: [
-			path.resolve(__dirname, 'src'),
-			path.resolve(__dirname, 'src/js'),
-			path.resolve(__dirname, 'node_modules')
+			path.resolve(__dirname, '../src'),
+			path.resolve(__dirname, '../src/js'),
+			path.resolve(__dirname, '../node_modules')
 		],
 		extensions: ['.js', '.json', '.hbs', '.jpg', '.png', '.svg', '.sass', '.scss', '.css']
 	},
 
 	module : {
 		rules : [
+			// javascript
 			{
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
 
+      // css
 			{
         test: /\.css$/,
         include: /node_modules/,
@@ -60,6 +48,37 @@ const config = {
         })
       },
 
+      // sass
+			{
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								sourceMap: true
+							}
+						},
+						{
+							loader : 'resolve-url-loader'
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true,
+							},
+						}
+					]
+				})
+			},
+
       // images
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -67,7 +86,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/images/[name].[ext]',
+              name: '[path][name].[ext]',
               outputPath: '',
               useRelativePath: false
             }
@@ -78,19 +97,16 @@ const config = {
       // fonts
       {
       	test: /\.(woff|woff2|eot|ttf|otf)$/,
-      	//use: ['url-loader']
       	use: ['file-loader?name=fonts/[name].[ext]']
       },
 
-      //
+      // svg
 			{
 				test: /\.svg$/,
 				loader: 'svg-inline-loader'
 			}
-
 		]
 	}
-
 }
 
 module.exports = config;

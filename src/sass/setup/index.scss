@@ -1,0 +1,18 @@
+// Theme Overrides
+@import '~sass/setup/variables';
+@import '~sass/setup/mixins';
+@import '~sass/setup/fonts';
+
+// gw-ui base styles
+@import 'gw-ui/dist/sass/reset';
+@import 'gw-ui/dist/sass/base';
+@import 'gw-ui/dist/sass/grid';
+@import 'gw-ui/dist/sass/typography';
+@import 'gw-ui/dist/sass/spacing';
+
+// gw-ui helper styles
+@import 'gw-ui/dist/sass/inputs';
+@import 'gw-ui/dist/sass/icons';
+@import 'gw-ui/dist/sass/scrollbars';
+@import 'gw-ui/dist/sass/tooltips';
+@import 'gw-ui/dist/sass/animations';
