@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+require('dotenv').config();
+
 const config = {
 
 	context: path.resolve(__dirname, '../src'),
@@ -13,9 +15,11 @@ const config = {
 	},
 
 	plugins : [
-		new webpack.EnvironmentPlugin({
-		  NODE_ENV: 'development'
+		new webpack.DefinePlugin({
+		  CONTENTFUL_SPACE: JSON.stringify(process.env.CONTENTFUL_SPACE),
+			CONTENTFUL_TOKEN: JSON.stringify(process.env.CONTENTFUL_TOKEN)
 		}),
+
     new ExtractTextPlugin('[name].css')
 	],
 

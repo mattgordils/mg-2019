@@ -1,0 +1,268 @@
+body {
+  // putting overflow hidden on the body can cause all 
+  // kinds of style issues that take a long time to figure out
+  overflow: visible;
+}
+
+html, body, input, textarea, select, button {
+  @include font-smooth(true);
+  @include respond-smaller-than($md) {
+    font-size: 14px;
+  }
+}
+
+.input-wrap {
+  .material-icons {
+    color: currentcolor;
+  }
+}
+
+.rich-text {
+  .p,
+  p {
+    &.mb-0 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+p,
+.p {
+  font-family: $main-font;
+  letter-spacing: $base-letter-spacing;
+  font-weight: $normal;
+  a {
+    border-color: $main-color;
+    padding-bottom: .2em;
+    &:hover {
+      background: rgba($main-color, .15);
+      border-color: darken($main-color, 15%);
+      color: darken($main-color, 15%);
+    }
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - #{$mobile-margin} * 2);
+  max-width: $max-site-width;
+  @include respond(1280) {
+    width: $site-width;
+    width: calc(100% - #{$margin} * 2);
+  }
+}
+
+.section-dark {
+	background: $dark-bg;
+	color: $bg-color;
+  input.button,
+  .button {
+    color: $white;
+    &.disabled,
+    &[disabled="disabled"] {
+      pointer-events: hover;
+      opacity: .4;
+      cursor: default;
+      background: transparent;
+      border-color: $white;
+      color: $white;
+      box-shadow: none !important;
+    }
+  }
+  hr {
+    border-color: $white;
+    opacity: .2;
+  }
+	.light-text-color {
+		color: rgba($white, .6) !important;
+	}
+  a {
+    color: currentcolor;
+  }
+  p,
+  .p {
+    a {
+      color: currentcolor;
+      border-color: rgba($white, .2);
+      &:hover {
+        background: transparent;
+        color: currentcolor;
+        border-color: $main-color;
+      }
+    }
+  }
+  .input-wrap {
+    color: $white;
+    .select-wrap {
+      .material-icons {
+        color: currentcolor;
+      }
+    }
+    input, textarea, select {
+      color: $white;
+      border-color: rgba($white, .3);
+      &:hover {
+        border-color: rgba($white, .5);
+        &::-webkit-input-placeholder {
+          color: rgba($white, .75);
+        }
+        &:-moz-placeholder {
+          color: rgba($white, .75);
+        }
+        &::-moz-placeholder {
+          color: rgba($white, .75);
+        }
+        &:-ms-input-placeholder {
+           color: rgba($white, .75);
+        }
+      }
+      &:focus {
+        border-color: $main-color;
+        &::-webkit-input-placeholder {
+          color: rgba($white, .3);
+        }
+        &:-moz-placeholder {
+          color: rgba($white, .3);
+        }
+        &::-moz-placeholder {
+          color: rgba($white, .3);
+        }
+        &:-ms-input-placeholder {
+           color: rgba($white, .3);
+        }
+      }
+      &::-webkit-input-placeholder {
+        color: $white;
+      }
+      &:-moz-placeholder {
+        color: $white;
+      }
+      &::-moz-placeholder {
+        color: $white;
+      }
+      &:-ms-input-placeholder {
+         color: $white;
+      }
+    }
+  }
+}
+
+svg {
+  * {
+    fill: currentcolor;
+  }
+}
+
+.set-ratio {
+  position: relative;
+  width: 100%;
+  height: 0;
+  &.ratio-square,
+  &.ratio-1-1 {
+    padding-bottom: 100%;
+  }
+  &.ratio-2-1 {
+    padding-bottom: 50%;
+  }
+  &.ratio-3-2 {
+    padding-bottom: 66.666%;
+  }
+  &.ratio-16-9 {
+    padding-bottom: 56.25%;
+  }
+}
+
+.object-cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  img,
+  video {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.section-light-grey {
+	background: $light-grey;
+}
+
+.scroll-transition-in {
+  opacity: 0;
+  transform: translate3d(0, 3rem, 0);
+  transition: opacity $slow-speed $ease, transform $slow-speed $ease;
+  &.in-view {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+// GW UI Notes
+// Add general-font-smoothing to inputs
+// Make sure <a> has a transition on transforms by default also
+
+// Get ride of "small caps default" for h6
+h6,
+.h6 {
+	font-weight: $bold;
+	font-family: $secondary-font;
+	letter-spacing: inherit;
+	text-transform: none;
+	font-size: $base-font-size;
+  @include font-smooth(true);
+}
+
+// Update gw-ui to user variables for this
+.overlay {
+  background: $modal-overlay-color;
+  opacity: 1;
+}
+
+// Add to gw-ui
+img,
+video {
+  display: block;
+  // Should make videos behave like images by default
+  max-width: 100%;
+  height: auto;
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.show-xlg {
+  @include respond($xlg) {
+    display: none;
+  }
+}
+
+.show-lg {
+  @include respond($lg) {
+    display: none;
+  }
+}
+
+.show-md {
+  @include respond($md) {
+    display: none;
+  }
+}
+
+.show-sm {
+  @include respond($sm) {
+    display: none;
+  }
+}

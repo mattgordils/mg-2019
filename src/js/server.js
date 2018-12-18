@@ -10,15 +10,66 @@ import Html from 'containers/Html';
 import App from 'containers/App';
 import NoMatch from 'containers/NoMatch';
 
+// Doesnt work to import?
+// import { sanitize } from 'util/formatting';
+
+import * as contentful from 'contentful';
+
+const client = contentful.createClient({
+	space: CONTENTFUL_SPACE,
+	accessToken: CONTENTFUL_TOKEN
+});
+
 // This is weird, I get it but best for now
 // Problem is in production when our server builds it overwrites our clients css file
 import 'sass/setup';
 
-const routes = [
-    {path : '/', title : 'Home'},
-];
+// const routes = [
+// 	{ path : '/', title : 'Home' },
+// ];
 
 export default ({ clientStats }) => {
+
+	var routes = [];
+	var siteTitle = 'Matthew Gordils'
+
+	var sanitize = (str) => {
+		str = str.replace(/\s+/g, '-').toLowerCase();
+		return str
+	}
+
+	client.getEntries({
+	  content_type: 'page'
+	})
+	.then( (response) => {
+		console.log(response)
+		response.items.forEach((item) => {
+			var pageTitle = item.fields.title || item.fields.pageType;
+			routes.push({
+				pageItem : item,
+				title : pageTitle === 'Homepage' ? pageTitle : pageTitle + ' → ' + siteTitle,
+				path : pageTitle === 'Homepage' ? '/' : '/' + sanitize(pageTitle)
+			})
+		})
+	})
+	.catch(console.error)
+
+	client.getEntries({
+	  content_type: 'project'
+	})
+	.then( (response) => {
+		console.log(response)
+		response.items.forEach((item) => {
+			var pageTitle = item.fields.title || item.fields.pageType;
+			routes.push({
+				pageItem : item,
+				title : pageTitle + ' → Projects → ' + siteTitle,
+				path : '/projects/' + sanitize(pageTitle)
+			})
+		})
+	})
+	.catch(console.error)
+
 	return (req, res, next) => {
 
 		const match = routes.reduce((acc, route) => matchPath(req.url, route, { exact: true }) || acc, null);
@@ -41,5 +92,5 @@ export default ({ clientStats }) => {
 			</Html>
 		);
 		stream.pipe(res);
-	};
+	}
 }

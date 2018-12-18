@@ -5,7 +5,7 @@ import App from 'containers/App';
 
 const Routes = ({ match }) => (
 	<Router>
-			<App />
+		<App />
 	</Router>
 );
 

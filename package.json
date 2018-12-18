@@ -60,6 +60,10 @@
     "webpack-notifier": "^1.6.0"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^12.1.2",
+    "babel-loader": "^7.1.5",
+    "contentful": "^7.0.5",
+    "dotenv": "^6.2.0",
     "express": "^4.16.0",
     "gw-ui": "^1.2.10",
     "moment": "^2.22.2",

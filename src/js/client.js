@@ -6,7 +6,7 @@ import 'sass/setup';
 
 const render = Component => {
 	hydrate(
-		<Component/>,
+		<Component />,
 		document.getElementById('root')
 	);
 };

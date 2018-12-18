@@ -1,1 +1,275 @@
-@import 'gw-ui/dist/sass/variables';
+$margin: 6.5rem;
+$mobile-margin: 6.5%;
+$min-site-width : 800px;
+$max-site-width: 80rem;
+$site-width : 87%;
+
+$max-text-width : 40rem;
+
+// Global Spacing
+$space-1 : .5rem;
+$space-2 : 1rem;
+$space-3 : 2rem;
+$space-4 : 4rem;
+
+// Grid Settings
+$columns: 12;
+$gutter: 1.75rem;
+$gutter-tight: $gutter / 2;
+$gutter-wide: $gutter * 2;
+
+// General UI Varibales
+$base-border-radius : 0;
+
+// Colors
+$bg-color : #fff;
+$main-color: #75CECE; //#2174D8;
+$black : #000;
+$white : #fff;
+$alert : #DF693D; // #F5445C;
+$notify :  #F7C24E; // #F4A146;
+$success : #37DCAF; // #2DE0A5;
+$text-color : #31435C;//#333;
+$light-grey : tint($text-color, 97%);
+$light-text-color : rgba($text-color, .4);
+$hr-color : rgba($text-color, .2);
+$hr-styles : 1px solid $hr-color;
+	// Dolphin Colors
+	$dark-bg : #05112A;
+
+// Links
+$link-color : $light-text-color;
+$link-hover-color : $main-color;
+
+// Weird
+$tight-horizontal-cell-padding : 4px;
+$tight-vertical-cell-padding : 4px;
+$rich-text-max-width : 300px;
+$scrollbar-width : 6px;
+$sidebar-width : 100rem;
+$header-height : 40px;
+
+// Typography
+$system-font: 'serif ,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue"', sans-serif;
+$main-font: 'Lyon', serif;
+$secondary-font: 'Basis', sans-serif;
+$code-font: 'Roboto Mono', monospace;
+$general-font-smoothing : true;
+$code-font-smoothing : false;
+$base-line-height : 1.5em;
+$base-letter-spacing : 0;
+$short-line-height : 1.25em;
+$tight-line-height : 1.1em;
+$tracked-out : .125em;
+	// General Text Sizes
+	$base-font-size : 16px;
+	$sm-font-size : 11px;
+	$md-font-size : .875rem;
+	$tiny-font-size : 10px;
+	// Font Weights
+	$normal : normal;
+	$thin : 300;
+	$light : 300;
+	$medium : 700;
+	$bold : 700;
+	// h1
+		$h1-font-family : $secondary-font;
+		$h1-text-transform : none;
+		$h1-font-size : 3.125rem;
+		$h1-font-weight : $bold;
+		$h1-line-height : 1.333em;
+		$h1-letter-spacing : inherit;
+		$h1-font-smoothing : true;
+	// h2
+		$h2-font-family : $secondary-font;
+		$h2-text-transform : none;
+		$h2-font-size : 2.5rem;
+		$h2-font-weight : $bold;
+		$h2-line-height : 1.333em;
+		$h2-letter-spacing : inherit;
+		$h2-font-smoothing : true;
+	// h3
+		$h3-font-family : $secondary-font;
+		$h3-text-transform : none;
+		$h3-font-size : 2rem;
+		$h3-font-weight : $bold;
+		$h3-line-height : 1.333em;
+		$h3-letter-spacing : inherit;
+		$h3-font-smoothing : true;
+	// h4
+		$h4-font-family : $secondary-font;
+		$h4-text-transform : none;
+		$h4-font-size : 1.5rem;
+		$h4-font-weight : $bold;
+		$h4-line-height : 1.4em;
+		$h4-letter-spacing : inherit;
+		$h4-font-smoothing : true;
+	// h5
+		$h5-font-family : $secondary-font;
+		$h5-text-transform : none;
+		$h5-font-size : 1.25rem;
+		$h5-font-weight : $bold;
+		$h5-line-height : $base-line-height;
+		$h5-letter-spacing : inherit;
+		$h5-font-smoothing : true;
+	// h6 is tracked out all caps by default
+		$h6-font-family : $main-font;
+	// p.sm
+		$sm-p-font-size : .875rem; //13px;
+		$sm-p-font-family : inherit;
+		$sm-p-font-weight : $normal;
+		$sm-p-line-height : $base-line-height;
+		$sm-p-letter-spacing : inherit;
+		// p
+			$p-font-size : 1rem;
+			$p-font-family : inherit;
+			$p-font-weight : $normal;
+			$p-line-height : $base-line-height;
+			$p-letter-spacing : inherit;
+		// p.md
+			$md-p-font-size : 1.125rem;
+			$md-p-font-family : inherit;
+			$md-p-font-weight : $normal;
+			$md-p-line-height : $base-line-height;
+			$md-p-letter-spacing : inherit;
+		// p.lg
+			$lg-p-font-size : 1.25rem;
+			$lg-p-font-family : inherit;
+			$lg-p-font-weight : $normal;
+			$lg-p-line-height : $base-line-height;
+			$lg-p-letter-spacing : inherit;
+
+// Text Highlights
+$highlight-bg : rgba($main-color, .15);
+$highlight-color : darken($main-color, 15%);
+
+// Button Variables
+$btn-radius: $base-border-radius;
+$btn-padding: 0 2em 0;
+$btn-text-transform: none;
+$btn-letter-spacing: 0;
+$btn-weight: $bold;
+$btn-font-style: normal;
+$btn-vertical-offset: 1px;
+$btn-font-smoothing: true;
+
+// Button Sizes
+$btn-height: 50px;
+	$btn-small-height: 30px;
+		$btn-tiny-height: 24px;
+			$btn-large-height: 60px;
+				$btn-micro-height: 20px;
+$btn-font-size: 16px;
+	$btn-small-font-size: $btn-font-size;
+		$btn-tiny-font-size: 9px;
+			$btn-large-font-size: $btn-font-size;
+
+	// Default
+	$btn-font: $secondary-font;
+	$btn-bg: transparent;
+	$btn-border-weight: 2px;
+	$btn-border-color: $main-color;
+	$btn-color: $text-color;
+	$btn-shadow: none;
+		$btn-hover-bg: $main-color;
+		$btn-hover-border-color: $main-color;
+		$btn-hover-color: $white;
+		$btn-hover-shadow: none;
+
+	// Secondary
+	$btn-secondary-bg: $text-color;
+	$btn-secondary-border-color: $btn-secondary-bg;
+	$btn-secondary-color: $bg-color;
+		$btn-secondary-hover-bg: darken($btn-secondary-bg, 10%);
+		$btn-secondary-hover-border-color: $btn-secondary-hover-bg;
+		$btn-secondary-hover-color: $white;
+
+	// Tertiary
+	$btn-tertiary-bg: $black;
+	$btn-tertiary-border-color: $btn-tertiary-bg;
+	$btn-tertiary-color: $main-color;
+		$btn-tertiary-hover-bg: $text-color;
+		$btn-tertiary-hover-border-color: $btn-tertiary-hover-bg;
+		$btn-tertiary-hover-color: $white;
+
+	// Alert
+	$btn-alert-color: $bg-color;
+	// Notify
+	$btn-notify-color: $text-color;
+	// success
+	$btn-success-color: $white;
+
+// Text Inputs
+$input-font : $secondary-font;
+$input-font-size : $p-font-size;
+$input-letter-spaceing : $p-letter-spacing;
+$input-label-weight : $bold;
+$input-font-weight : $bold;
+$input-bg : transparent;
+$input-color : $text-color;
+$input-border : 1px solid darken($hr-color, 10%);
+$input-border-radius : $btn-radius;
+$input-hover-bg : transparent;
+$input-hover-color : $text-color;
+$input-hover-border : 1px solid darken($main-color, 10%);
+$input-focus-bg : transparent;
+$input-focus-color : $text-color;
+$input-focus-border : 1px solid darken($main-color, 5%);
+$placeholder-color : rgba($text-color, .3);
+$placeholder-hover-color : rgba($text-color, .4);
+$placeholder-focus-color : rgba($text-color, .4);
+$input-padding: 0px 1em 1px;
+$input-text-offset: 0;
+$input-height: $btn-height;
+$input-large-height: $btn-large-height;
+$input-large-font-size: $p-font-size;
+$input-small-height: $btn-small-height;
+$input-small-font-size: .75rem;
+$input-tiny-height: $btn-tiny-height;
+$input-tiny-font-size: $input-small-font-size;
+
+// Select Fields
+$select-border : $input-border;
+$select-bg : transparent;
+$select-color : $light-text-color;
+
+// Toggles
+$toggle-height-tiny : 10px;
+$toggle-height-sm : 14px;
+$toggle-height-md : 18px;
+$toggle-height-lg : 22px;
+$toggle-height-xlg : 24px;
+
+// Tables
+$vertical-cell-padding: .75rem;
+$horizontal-cell-padding: .75rem;
+
+// Modals
+$modal-padding: $gutter;
+$modal-header-font-size: .875rem;
+$modal-full-width-actions: false;
+$modal-overlay-color: rgba($dark-bg, 0.3);
+$modal-shadow: 0 20px 40px rgba($text-color, .1);
+
+// Tooltips
+$nipple-size: 4px;
+$tooltip-offset: 6px;
+$tooltip-text-transform: none;
+$tooltip-letter-spacing: .02em;
+$tooltip-font-size: .75rem;
+$tooltip-font-weight: $normal;
+$tooltip-padding: 5px 8px;
+$tooltip-height: 26px;
+
+// Breakpoints
+$sm : 450;
+$md : 600;
+$lg : 950;
+$xlg : 1200;
+$huge : 1500;
+
+// Transitions
+$fast-speed : .1s;
+$slow-speed : .5s;
+$md-speed : .2s;
+$ease : ease-in-out;
