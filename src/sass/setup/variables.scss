@@ -1,10 +1,10 @@
-$margin: 6.5rem;
+$margin: 6rem;
 $mobile-margin: 6.5%;
 $min-site-width : 800px;
-$max-site-width: 80rem;
+$max-site-width: 1200px;
 $site-width : 87%;
 
-$max-text-width : 40rem;
+$max-text-width : 34rem;
 
 // Global Spacing
 $space-1 : .5rem;
@@ -19,29 +19,29 @@ $gutter-tight: $gutter / 2;
 $gutter-wide: $gutter * 2;
 
 // General UI Varibales
-$base-border-radius : 0;
+$base-border-radius : 2px;
 
 // Colors
-$bg-color : #fff;
-$main-color: #75CECE; //#2174D8;
+$bg-color : #000;
+$main-color: #48FFFF;
 $black : #000;
 $white : #fff;
-$alert : #DF693D; // #F5445C;
-$notify :  #F7C24E; // #F4A146;
-$success : #37DCAF; // #2DE0A5;
-$text-color : #31435C;//#333;
-$light-grey : tint($text-color, 97%);
-$light-text-color : rgba($text-color, .4);
-$hr-color : rgba($text-color, .2);
+$alert : #DF693D;
+$notify :  #F7C24E;
+$success : #37DCAF;
+$text-color : #fff;
+$light-grey : darken($text-color, 73%);
+$light-text-color : darken($text-color, 40%);
+
+// Hr
+$hr-color : $text-color;
 $hr-styles : 1px solid $hr-color;
-	// Dolphin Colors
-	$dark-bg : #05112A;
 
 // Links
 $link-color : $light-text-color;
 $link-hover-color : $main-color;
 
-// Weird
+// Weirdness
 $tight-horizontal-cell-padding : 4px;
 $tight-vertical-cell-padding : 4px;
 $rich-text-max-width : 300px;
@@ -50,11 +50,11 @@ $sidebar-width : 100rem;
 $header-height : 40px;
 
 // Typography
-$system-font: 'serif ,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue"', sans-serif;
-$main-font: 'Lyon', serif;
-$secondary-font: 'Basis', sans-serif;
+$system-font: 'Plain', sans-serif;
+$main-font: $system-font;
+$secondary-font: $system-font;
 $code-font: 'Roboto Mono', monospace;
-$general-font-smoothing : true;
+$general-font-smoothing : false;
 $code-font-smoothing : false;
 $base-line-height : 1.5em;
 $base-letter-spacing : 0;
@@ -73,41 +73,41 @@ $tracked-out : .125em;
 	$medium : 700;
 	$bold : 700;
 	// h1
-		$h1-font-family : $secondary-font;
+		$h1-font-family : inherit;
 		$h1-text-transform : none;
-		$h1-font-size : 3.125rem;
-		$h1-font-weight : $bold;
-		$h1-line-height : 1.333em;
+		$h1-font-size : 2.5rem;
+		$h1-font-weight : $medium;
+		$h1-line-height : $short-line-height;
 		$h1-letter-spacing : inherit;
 		$h1-font-smoothing : true;
 	// h2
-		$h2-font-family : $secondary-font;
+		$h2-font-family : inherit;
 		$h2-text-transform : none;
-		$h2-font-size : 2.5rem;
-		$h2-font-weight : $bold;
-		$h2-line-height : 1.333em;
+		$h2-font-size : 2.25rem;
+		$h2-font-weight : $medium;
+		$h2-line-height : $short-line-height;
 		$h2-letter-spacing : inherit;
 		$h2-font-smoothing : true;
 	// h3
-		$h3-font-family : $secondary-font;
+		$h3-font-family : inherit;
 		$h3-text-transform : none;
-		$h3-font-size : 2rem;
-		$h3-font-weight : $bold;
-		$h3-line-height : 1.333em;
+		$h3-font-size : 1.75rem;
+		$h3-font-weight : $medium;
+		$h3-line-height : $short-line-height;
 		$h3-letter-spacing : inherit;
 		$h3-font-smoothing : true;
 	// h4
-		$h4-font-family : $secondary-font;
+		$h4-font-family : inherit;
 		$h4-text-transform : none;
-		$h4-font-size : 1.5rem;
-		$h4-font-weight : $bold;
-		$h4-line-height : 1.4em;
+		$h4-font-size : 1.25rem;
+		$h4-font-weight : $medium;
+		$h4-line-height : $base-line-height;
 		$h4-letter-spacing : inherit;
 		$h4-font-smoothing : true;
 	// h5
-		$h5-font-family : $secondary-font;
+		$h5-font-family : inherit;
 		$h5-text-transform : none;
-		$h5-font-size : 1.25rem;
+		$h5-font-size : 1rem;
 		$h5-font-weight : $bold;
 		$h5-line-height : $base-line-height;
 		$h5-letter-spacing : inherit;
@@ -140,8 +140,8 @@ $tracked-out : .125em;
 			$lg-p-letter-spacing : inherit;
 
 // Text Highlights
-$highlight-bg : rgba($main-color, .15);
-$highlight-color : darken($main-color, 15%);
+$highlight-bg : rgba($main-color, .1);
+$highlight-color : $main-color;
 
 // Button Variables
 $btn-radius: $base-border-radius;
@@ -159,20 +159,20 @@ $btn-height: 50px;
 		$btn-tiny-height: 24px;
 			$btn-large-height: 60px;
 				$btn-micro-height: 20px;
-$btn-font-size: 16px;
+$btn-font-size: $sm-p-font-size;
 	$btn-small-font-size: $btn-font-size;
 		$btn-tiny-font-size: 9px;
 			$btn-large-font-size: $btn-font-size;
 
 	// Default
-	$btn-font: $secondary-font;
-	$btn-bg: transparent;
-	$btn-border-weight: 2px;
+	$btn-font: $main-font;
+	$btn-bg: $main-color;
+	$btn-border-weight: 1px;
 	$btn-border-color: $main-color;
-	$btn-color: $text-color;
+	$btn-color: $white;
 	$btn-shadow: none;
-		$btn-hover-bg: $main-color;
-		$btn-hover-border-color: $main-color;
+		$btn-hover-bg: darken($btn-bg, 7%);
+		$btn-hover-border-color: $btn-hover-bg;
 		$btn-hover-color: $white;
 		$btn-hover-shadow: none;
 
@@ -200,11 +200,11 @@ $btn-font-size: 16px;
 	$btn-success-color: $white;
 
 // Text Inputs
-$input-font : $secondary-font;
+$input-font : $main-font;
 $input-font-size : $p-font-size;
 $input-letter-spaceing : $p-letter-spacing;
-$input-label-weight : $bold;
-$input-font-weight : $bold;
+$input-label-weight : $normal;
+$input-font-weight : $normal;
 $input-bg : transparent;
 $input-color : $text-color;
 $input-border : 1px solid darken($hr-color, 10%);
@@ -218,8 +218,8 @@ $input-focus-border : 1px solid darken($main-color, 5%);
 $placeholder-color : rgba($text-color, .3);
 $placeholder-hover-color : rgba($text-color, .4);
 $placeholder-focus-color : rgba($text-color, .4);
-$input-padding: 0px 1em 1px;
-$input-text-offset: 0;
+$input-padding: 0px 1.25em 1px;
+$input-text-offset: 3px;
 $input-height: $btn-height;
 $input-large-height: $btn-large-height;
 $input-large-font-size: $p-font-size;
@@ -248,7 +248,7 @@ $horizontal-cell-padding: .75rem;
 $modal-padding: $gutter;
 $modal-header-font-size: .875rem;
 $modal-full-width-actions: false;
-$modal-overlay-color: rgba($dark-bg, 0.3);
+$modal-overlay-color: rgba($text-color, 0.15);
 $modal-shadow: 0 20px 40px rgba($text-color, .1);
 
 // Tooltips
@@ -264,8 +264,8 @@ $tooltip-height: 26px;
 // Breakpoints
 $sm : 450;
 $md : 600;
-$lg : 950;
-$xlg : 1200;
+$lg : 850;
+$xlg : 1050;
 $huge : 1500;
 
 // Transitions

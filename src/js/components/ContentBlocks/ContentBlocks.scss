@@ -1,0 +1,23 @@
+@import '~sass/setup';
+
+$max-width-break : strip-unit($max-site-width) + (strip-unit($margin) * 2 * strip-unit($base-font-size));;
+
+.block {
+	&.blockText {
+		.rich-text {
+			max-width: 100%;
+		}
+		.blockText-Large {
+			width: $max-width-break;
+			@include respond($md) {
+				font-size: 2.77vw;
+				p {
+					font-size: 1em;
+				}
+			}
+			@include respond($max-width-break) {
+				font-size: 2.4rem;
+			}
+		}
+	}
+}

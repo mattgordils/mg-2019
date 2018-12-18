@@ -5,33 +5,29 @@ const client = contentful.createClient({
 	accessToken: CONTENTFUL_TOKEN
 });
 
-///
-// const getPages = () => {
-// 	return client.getEntries({
-// 	  content_type: 'page'
-// 	})
-// 	.then( (response) => {
-// 		return JSON.stringify(response.items)
-// 	})
-// 	.catch(console.error)
-// }
+//
 
-// const pages = getPages();
-///
-
-const getPages = () => {
+const pages = () => {
 	return client.getEntries({
 	  content_type: 'page'
 	})
 	.then( (response) => {
-		return response.items
+		return response
 	})
 	.catch(console.error)
 }
 
-var pages = getPages()
+//
 
-// const
+const projects = () => {
+	return client.getEntries({
+	  content_type: 'project'
+	})
+	.then( (response) => {
+		return response
+	})
+	.catch(console.error)
+}
 
 export default pages;
-// export { projects };
+export { projects };

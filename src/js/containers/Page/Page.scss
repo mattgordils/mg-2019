@@ -1,0 +1,14 @@
+@import '~sass/setup';
+
+.page-home {
+	.block {
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background: $main-color;
+		}
+	}
+}

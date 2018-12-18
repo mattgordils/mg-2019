@@ -1,0 +1,16 @@
+.mg-grid {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	.container,
+	.grid-flex {
+		height: 100%;
+		.grid-lines {
+			height: 100%;
+			border-left: 1px solid #48FFFF;
+			border-right: 1px solid #48FFFF;
+		}
+	}
+}
