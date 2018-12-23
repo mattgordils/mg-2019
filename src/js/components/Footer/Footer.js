@@ -11,9 +11,9 @@ class Footer extends Component {
 					<div className="grid-flex align-center">
 						<div className="col no-grow"><p>Queens, New York</p></div>
 						<div className="col no-grow"><p><a href="#">Work Archive</a></p></div>
-						<div className="col no-grow"><p><a href="#">Instagram</a></p></div>
-						<div className="col no-grow"><p><a href="#">Dribbble</a></p></div>
-						<div className="col no-grow"><p><a href="#">Contact</a></p></div>
+						<div className="col no-grow"><p><a href="https://www.instagram.com/mattgordils/" target="_blank">Instagram</a></p></div>
+						<div className="col no-grow"><p><a href="https://dribbble.com/mattgordils" target="_blank">Dribbble</a></p></div>
+						<div className="col no-grow"><p><a href="mailto:mattgordils@gmail.com?subject=Hello from your website">Contact</a></p></div>
 					</div>
 				</div>
 			</footer>
