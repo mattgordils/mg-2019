@@ -40,3 +40,17 @@ p {
 		}
 	}
 }
+
+.rich-text {
+	max-width: $max-text-width;
+  .p,
+  p {
+    &.mb-0 {
+      margin-bottom: 0;
+    }
+  }
+  > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}

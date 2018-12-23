@@ -23,19 +23,6 @@ body {
   }
 }
 
-.rich-text {
-  .p,
-  p {
-    &.mb-0 {
-      margin-bottom: 0;
-    }
-  }
-  > *:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-}
-
 p,
 .p {
   font-family: $main-font;
