@@ -1,0 +1,17 @@
+@import '~sass/setup';
+
+.video-clips {
+	transition: opacity $md-speed .3s $ease;
+	&.loading {
+		opacity: 0;
+	}
+	.next-video {
+		z-index: 1;
+	}
+	.current-video {
+		z-index: 2;
+	}
+	.set-height {
+		height: calc(100vh - #{$margin} * 2);
+	}
+}

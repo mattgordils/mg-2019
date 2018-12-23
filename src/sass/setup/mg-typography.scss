@@ -1,0 +1,42 @@
+html, body, input, textarea, select, button {
+  @include font-smooth(true);
+  @include respond-smaller-than($sm) {
+    font-size: 14px;
+  }
+  @include respond($xlg) {
+    font-size: $base-font-size + 2px;
+  }
+}
+
+h6,
+.h6,
+.h6 p {
+  font-family: $h6-font-family;
+  text-transform: $h6-text-transform;
+  font-size: $h6-font-size;
+  font-weight: $h6-font-weight;
+  line-height: $h6-line-height;
+  letter-spacing: $h6-letter-spacing;
+  @include font-smooth($h6-font-smoothing);
+}
+
+p {
+	.bold,
+	strong,
+	b {
+		font-family: $secondary-font;
+		font-weight: $bold;
+		font-size: .875em;
+		letter-spacing: .01em;
+	}
+	a {
+		@include font-smooth(true);
+		border-bottom: 1px solid rgba($text-color, .3);
+		padding-bottom: 0.1em;
+		&:hover {
+			color: currentcolor;
+			border-color: currentcolor;
+			background: transparent;
+		}
+	}
+}

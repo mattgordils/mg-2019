@@ -8,37 +8,54 @@
 
 @font-face {
   font-family: 'Plain';
-  src: url('https://s3.amazonaws.com/gordils-willis/fonts/plain/plain-light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Plain';
-  src: url('https://s3.amazonaws.com/gordils-willis/fonts/plain/plain-regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Plain';
-  src:  url('https://s3.amazonaws.com/gordils-willis/fonts/plain/plain-thin.woff') format('woff'),
-        url('https://s3.amazonaws.com/gordils-willis/fonts/plain/plain-thin.woff2') format('woff2');
+  src:  url('assets/fonts/plain/plain-thin.woff') format('woff'),
+        url('assets/fonts/plain/plain-thin.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Plain';
-  src: url('https://s3.amazonaws.com/gordils-willis/fonts/plain/PlainMedium-Regular.woff') format('woff2');
+  src: url('assets/fonts/plain/plain-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plain';
+  src:  url('assets/fonts/plain/plain-regular.woff') format('woff'),
+        url('assets/fonts/plain/plain-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plain';
+  src: url('assets/fonts/plain/plainMedium-Regular.woff') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
+  font-family: 'Plain';
+  src:  url('assets/fonts/plain/Plain-Bold.woff') format('woff'),
+        url('assets/fonts/plain/Plain-Bold.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Times';
-  src:  url('https://s3.amazonaws.com/gordils-willis/fonts/times/times-new-roman.woff') format('woff'),
-        url('https://s3.amazonaws.com/gordils-willis/fonts/times/times-new-roman.woff2') format('woff2');
+  src:  url('assets/fonts/times/times-new-roman.woff') format('woff'),
+        url('assets/fonts/times/times-new-roman.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pitch';
+  src:  url('assets/fonts/pitch/PitchSans-Semibold.woff') format('woff'),
+        url('assets/fonts/pitch/PitchSans-Semibold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }

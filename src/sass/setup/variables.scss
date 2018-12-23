@@ -4,7 +4,7 @@ $min-site-width : 800px;
 $max-site-width: 1200px;
 $site-width : 87%;
 
-$max-text-width : 34rem;
+$max-text-width : 29.5rem; //34rem;
 
 // Global Spacing
 $space-1 : .5rem;
@@ -50,9 +50,9 @@ $sidebar-width : 100rem;
 $header-height : 40px;
 
 // Typography
-$system-font: 'Plain', sans-serif;
-$main-font: $system-font;
-$secondary-font: $system-font;
+$system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$main-font: 'Times', serif;
+$secondary-font: 'Plain', sans-serif;
 $code-font: 'Roboto Mono', monospace;
 $general-font-smoothing : false;
 $code-font-smoothing : false;
@@ -71,49 +71,55 @@ $tracked-out : .125em;
 	$thin : 300;
 	$light : 300;
 	$medium : 700;
-	$bold : 700;
+	$bold : 900;
 	// h1
-		$h1-font-family : inherit;
-		$h1-text-transform : none;
+		$h1-font-family : $secondary-font;
+		$h1-text-transform : uppercase;
 		$h1-font-size : 2.5rem;
-		$h1-font-weight : $medium;
+		$h1-font-weight : $bold;
 		$h1-line-height : $short-line-height;
-		$h1-letter-spacing : inherit;
+		$h1-letter-spacing : .01em;
 		$h1-font-smoothing : true;
 	// h2
-		$h2-font-family : inherit;
-		$h2-text-transform : none;
+		$h2-font-family : $secondary-font;
+		$h2-text-transform : uppercase;
 		$h2-font-size : 2.25rem;
-		$h2-font-weight : $medium;
+		$h2-font-weight : $bold;
 		$h2-line-height : $short-line-height;
-		$h2-letter-spacing : inherit;
+		$h2-letter-spacing : .01em;
 		$h2-font-smoothing : true;
 	// h3
-		$h3-font-family : inherit;
-		$h3-text-transform : none;
+		$h3-font-family : $secondary-font;
+		$h3-text-transform : uppercase;
 		$h3-font-size : 1.75rem;
-		$h3-font-weight : $medium;
+		$h3-font-weight : $bold;
 		$h3-line-height : $short-line-height;
-		$h3-letter-spacing : inherit;
+		$h3-letter-spacing : .01em;
 		$h3-font-smoothing : true;
 	// h4
-		$h4-font-family : inherit;
-		$h4-text-transform : none;
+		$h4-font-family : $secondary-font;
+		$h4-text-transform : uppercase;
 		$h4-font-size : 1.25rem;
-		$h4-font-weight : $medium;
+		$h4-font-weight : $bold;
 		$h4-line-height : $base-line-height;
-		$h4-letter-spacing : inherit;
+		$h4-letter-spacing : .01em;
 		$h4-font-smoothing : true;
 	// h5
-		$h5-font-family : inherit;
-		$h5-text-transform : none;
+		$h5-font-family : $secondary-font;
+		$h5-text-transform : uppercase;
 		$h5-font-size : 1rem;
 		$h5-font-weight : $bold;
 		$h5-line-height : $base-line-height;
-		$h5-letter-spacing : inherit;
+		$h5-letter-spacing : .02em;
 		$h5-font-smoothing : true;
 	// h6 is tracked out all caps by default
-		$h6-font-family : $main-font;
+		$h6-font-family : $secondary-font;
+		$h6-text-transform : uppercase;
+		$h6-font-size : .875rem;
+		$h6-font-weight : $bold;
+		$h6-line-height : $base-line-height;
+		$h6-letter-spacing : .02em;
+		$h6-font-smoothing : true;
 	// p.sm
 		$sm-p-font-size : .875rem; //13px;
 		$sm-p-font-family : inherit;

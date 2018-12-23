@@ -4,11 +4,14 @@ import './Page.scss';
 import pages, { projects } from 'content';
 import { sanitize } from 'util/formatting';
 import ContentBlocks from 'components/ContentBlocks';
+import PageLoader from 'components/PageLoader';
+import Footer from 'components/Footer';
 
 export default class Page extends Component {
 
 	state = {
-		page : false
+		page : false,
+		loading : true
 	}
 
 	componentDidMount () {
@@ -18,11 +21,17 @@ export default class Page extends Component {
 	setPageContent = () => {
 		pages().then((pages) => {
 			pages.items.forEach((item) => {
-				console.log(this.props)
 				if(this.props.match.path === '/') {
-					this.setState({page : item, homepage : true})
+					this.setState({
+						page : item,
+						homepage : true,
+						loading : false
+					})
 				} else if(this.props.match.path === sanitize(item.fields.title)) {
-					this.setState({page : item})
+					this.setState({
+						page : item,
+						loading : false
+					})
 				}
 			})
 		});
@@ -30,24 +39,26 @@ export default class Page extends Component {
 
 	render() {
 
-		if (!this.state.page) {
-			return false
+		if (this.state.loading) {
+			return <PageLoader />
 		}
 
-		console.log(this.state.page)
+		// console.log(this.state.page)
+		// console.log(this.props)
 
 		const page = this.state.page;
 
 		return (
-			<div className={this.state.homepage ? 'page-home' : 'page-' + sanitize(page.fields.title)}>
-				<div className="container my-margin align-center">
-					<h1>{page.fields.title}</h1>
+			<div className={this.state.homepage ? 'page fade-in page-home' : 'page fade-in page-' + sanitize(page.fields.title)}>
+				<div className="container my-vert-space align-center">
+					<h1 className="h5">{page.fields.title === 'Home' ? 'Matthew Gordils' : page.fields.title}</h1>
 				</div>
 				<div>
 					{page.fields.blocks ? (
 						<ContentBlocks blocks={page.fields.blocks}/>
 					) : false}
 				</div>
+				<Footer />
 			</div>
 		);
 	}

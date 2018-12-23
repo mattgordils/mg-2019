@@ -30,7 +30,7 @@ export default ({ clientStats }) => {
 	pages().then((pages) => {
 		pages.items.forEach((page) => {
 			var pageTitle = page.fields.title;
-			console.log(page)
+			console.log(sanitize(pageTitle))
 			routes.push({
 				title : pageTitle === 'Home' ? siteTitle : pageTitle + ' → ' + siteTitle,
 				path : pageTitle === 'Home' ? '/' : '/' + sanitize(pageTitle)
