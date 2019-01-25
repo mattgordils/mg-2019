@@ -1,6 +1,10 @@
 @import '~sass/setup';
 
 .footer {
+	padding-bottom: $space-3;
+	@include respond($md) {
+		padding-bottom: $space-2;
+	}
 	p {
 		font-size: 12px;
 		// font-family: 'Pitch', monospace;

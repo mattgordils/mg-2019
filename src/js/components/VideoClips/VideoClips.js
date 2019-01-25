@@ -51,7 +51,7 @@ class VideoClips extends Component {
   videoPlay = (event) => {
     // console.log('currentTime: ' + event.target.currentTime)
     // console.log('duration: ' + event.target.duration)
-    if (event.target.currentTime > event.target.duration - .25) {
+    if (event.target.currentTime > event.target.duration - .5) {
       console.log('switch the video');
         if (this.state.currentClip === this.state.videos.length - 1) {
         this.setState({currentClip : 0})
@@ -64,36 +64,36 @@ class VideoClips extends Component {
         this.setState({nextClip : this.state.nextClip + 1})
       }
       this.videoClips.current.load();
-      this.nextVideoClips.current.load();
+      // this.nextVideoClips.current.load();
     }
     if (event.target.currentTime > event.target.duration) {
       this.videoClips.current.play();
-      this.nextVideoClips.current.play();
+      // this.nextVideoClips.current.play();
     }
   }
 
 	render() {
 
-		console.log(this.state)
-
 		let currentClip = "http:" + this.state.videos[this.state.currentClip].fields.file.url;
 		let nextClip = "http:" + this.state.videos[this.state.nextClip].fields.file.url;
 
 		return (
-			<div className={!this.state.loading ? "video-clips" : "video-clips loading"}>
-        <div className="container">
-          <div className="set-height">
-  					<div className="object-contain">
-  						<video className="current-clip" ref={this.videoClips} autoPlay muted playsInline>
-  							<source ref={this.videoClip} src={currentClip} type="video/mp4"/>
-  						</video>
-              {/*<video className="next-clip" ref={this.nextVideoClips} autoPlay muted playsInline>
-                <source ref={this.nextVideoClip} src={nextClip} type="video/mp4"/>
-              </video>*/}
-  					</div>
-  				</div>
-        </div>
-			</div>
+      <section className="my-margin">
+  			<div className={!this.state.loading ? "video-clips" : "video-clips loading"}>
+          <div className="container">
+            <div className="set-height">
+    					<div className="object-contain">
+    						<video className="current-clip" ref={this.videoClips} autoPlay muted playsInline>
+    							<source ref={this.videoClip} src={currentClip} type="video/mp4"/>
+    						</video>
+                {/*<video className="next-clip" ref={this.nextVideoClips} autoPlay muted playsInline>
+                  <source ref={this.nextVideoClip} src={nextClip} type="video/mp4"/>
+                </video>*/}
+    					</div>
+    				</div>
+          </div>
+  			</div>
+      </section>
 		);
 	}
 }
