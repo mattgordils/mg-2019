@@ -2,9 +2,12 @@
 
 .footer {
 	p {
-		font-size: 14px;
-		font-family: 'Pitch', monospace;
+		font-size: 12px;
+		// font-family: 'Pitch', monospace;
+		font-family: $secondary-font;
+		font-weight: $bold;
 		a {
+			display: inline-block;
 			border-color: transparent;
 		}
 	}

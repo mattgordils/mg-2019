@@ -8,19 +8,22 @@ class VideoClips extends Component {
     super(props);
     this.videoClips = React.createRef();
     this.videoClip = React.createRef();
-    // this.nextVideoClips = React.createRef();
+    this.nextVideoClips = React.createRef();
+    this.nextVideoClip = React.createRef();
   }
 
   state = {
-  	loading: true,
+  	loading: false,//true,
   	currentClip : 0,
   	nextClip : 1,
   	videos : this.props.videos
   }
 
   componentDidMount () {
-		this.videoClips.current.addEventListener('ended', this.videoEnded);
-		this.videoClips.current.addEventListener('onloadeddata', this.setState({loading : false}));
+		// this.videoClips.current.addEventListener('ended', this.videoEnded);
+    //
+    this.videoClips.current.addEventListener('timeupdate', this.videoPlay);
+		this.videoClips.current.addEventListener('onloadeddata', this.setState({ loading : false }));
   }
 
   videoEnded = (event) => {
@@ -40,30 +43,56 @@ class VideoClips extends Component {
   		this.setState({nextClip : this.state.nextClip + 1})
   	}
   	this.videoClips.current.load();
-  	// this.nextVideoClips.current.load();
+  	this.nextVideoClips.current.load();
     this.videoClips.current.play();
-    // this.nextVideoClips.current.play();
+    this.nextVideoClips.current.play();
+  }
+
+  videoPlay = (event) => {
+    // console.log('currentTime: ' + event.target.currentTime)
+    // console.log('duration: ' + event.target.duration)
+    if (event.target.currentTime > event.target.duration - .25) {
+      console.log('switch the video');
+        if (this.state.currentClip === this.state.videos.length - 1) {
+        this.setState({currentClip : 0})
+        this.setState({nextClip : 1})
+      } else if (this.state.nextClip === this.state.videos.length - 1) {
+        this.setState({currentClip : this.state.currentClip + 1})
+        this.setState({nextClip : 0}) 
+      } else {
+        this.setState({currentClip : this.state.currentClip + 1})
+        this.setState({nextClip : this.state.nextClip + 1})
+      }
+      this.videoClips.current.load();
+      this.nextVideoClips.current.load();
+    }
+    if (event.target.currentTime > event.target.duration) {
+      this.videoClips.current.play();
+      this.nextVideoClips.current.play();
+    }
   }
 
 	render() {
 
 		console.log(this.state)
 
-		let currentClip = 'https:' + this.state.videos[this.state.currentClip].fields.file.url;
-		let nextClip = 'https:' + this.state.videos[this.state.nextClip].fields.file.url;
+		let currentClip = "http:" + this.state.videos[this.state.currentClip].fields.file.url;
+		let nextClip = "http:" + this.state.videos[this.state.nextClip].fields.file.url;
 
 		return (
 			<div className={!this.state.loading ? "video-clips" : "video-clips loading"}>
-				<div className="set-height">
-					<div className="object-contain">
-						<video className="current-clip" ref={this.videoClips} autoPlay muted playsInline>
-							<source ref={this.videoClip} src={currentClip} type="video/mp4"/>
-						</video>
-						{/*<video className="next-clip" ref={this.nextVideoClips} muted>
-							<source src={nextClip} type="video/mp4"/>
-						</video>*/}
-					</div>
-				</div>
+        <div className="container">
+          <div className="set-height">
+  					<div className="object-contain">
+  						<video className="current-clip" ref={this.videoClips} autoPlay muted playsInline>
+  							<source ref={this.videoClip} src={currentClip} type="video/mp4"/>
+  						</video>
+              {/*<video className="next-clip" ref={this.nextVideoClips} autoPlay muted playsInline>
+                <source ref={this.nextVideoClip} src={nextClip} type="video/mp4"/>
+              </video>*/}
+  					</div>
+  				</div>
+        </div>
 			</div>
 		);
 	}

@@ -2,6 +2,12 @@
 
 .video-clips {
 	transition: opacity $md-speed .3s $ease;
+	.container {
+		@include respond-smaller-than($md) {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
 	&.loading {
 		opacity: 0;
 	}
@@ -12,6 +18,10 @@
 		z-index: 2;
 	}
 	.set-height {
-		height: calc(100vh - #{$margin} * 2);
+		padding-bottom: 56.25%;
+		@include respond($xlg) {
+			height: calc(100vh - #{$margin} * 2);
+			padding-bottom: 0;
+		}
 	}
 }

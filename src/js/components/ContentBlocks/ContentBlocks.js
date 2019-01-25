@@ -47,9 +47,7 @@ class ContentBlocks extends Component {
 
 							{block.sys.contentType.sys.id === 'endlessVideos' ? (
 								<section className="my-margin">
-									<div className="container">
-										<VideoClips videos={block.fields.media} />
-									</div>
+									<VideoClips videos={block.fields.media} />
 								</section>
 							) : false}
 
