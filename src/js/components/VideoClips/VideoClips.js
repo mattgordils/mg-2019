@@ -7,9 +7,7 @@ class VideoClips extends Component {
 	constructor(props) {
     super(props);
     this.videoClips = React.createRef();
-    this.videoClip = React.createRef();
     this.nextVideoClips = React.createRef();
-    this.nextVideoClip = React.createRef();
   }
 
   state = {
@@ -64,7 +62,7 @@ class VideoClips extends Component {
         this.setState({nextClip : this.state.nextClip + 1})
       }
       this.videoClips.current.load();
-      // this.nextVideoClips.current.load();
+      this.nextVideoClips.current.load();
     }
     if (event.target.currentTime > event.target.duration) {
       this.videoClips.current.play();
@@ -84,11 +82,11 @@ class VideoClips extends Component {
             <div className="set-height">
     					<div className="object-contain">
     						<video className="current-clip" ref={this.videoClips} autoPlay muted playsInline>
-    							<source ref={this.videoClip} src={currentClip} type="video/mp4"/>
+    							<source src={currentClip} type="video/mp4"/>
     						</video>
-                {/*<video className="next-clip" ref={this.nextVideoClips} autoPlay muted playsInline>
-                  <source ref={this.nextVideoClip} src={nextClip} type="video/mp4"/>
-                </video>*/}
+                <video className="next-clip" ref={this.nextVideoClips} autoPlay muted playsInline>
+                  <source src={nextClip} type="video/mp4"/>
+                </video>
     					</div>
     				</div>
           </div>
